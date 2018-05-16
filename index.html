@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>WORDGUESS GAME</title>
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+</head>
+
+<script>
+    var randomWordArr = ["SUPERBOWL","FINALS", "WORLDCUP"];
+    var randomWord = randomWordArr[Math.floor(Math.random() * randomWordArr.length)];
+    var s;
+    var count = 0;
+    var answerArray = [];
+    var check;
+
+
+    function startUp()
+    {
+        
+        for (var i = 0; i <randomWord.length; i++)
+        {
+            answerArray[i] = "_";
+        }
+        s = answerArray.join(" ");
+        document.getElementById("answer").innerHTML = s;
+        count=0;
+    }
+
+    function Letter()
+    {
+        var letter = document.getElementById("letter").value.toUpperCase();
+        console.log(letter)
+        if (letter.length > 0)
+        {
+            for (var i = 0; i < randomWord.length; i++)
+            {
+                if (randomWord[i] === letter)
+                {
+                    answerArray[i] = letter;
+                }
+            }
+            count++;
+            document.getElementById("counter").innerHTML = "No of attempts: " + count;
+            document.getElementById("answer").innerHTML = answerArray.join(" ");
+        }
+
+        console.log(answerArray)
+
+        var check = answerArray.includes("S" && "U" && "P" && "E" && "R" && "B" && "O" && "W" && "L")
+        console.log(check)
+
+        if(check===true){
+        randomWordArr = ["SUPERBOWL","FINALS", "WORLDCUP"];
+        randomWord = randomWordArr[Math.floor(Math.random() * randomWordArr.length)];
+        startUp();
+        document.getElementById("stat").innerHTML = "You WIN!!!";
+
+        }
+
+        if(count===15)
+        {
+            document.getElementById("stat").innerHTML = "You LOSE hahahaha";
+        }
+        if(count===16)
+        {
+            randomWordArr = ["SUPERBOWL","FINALS", "WORLDCUP"];
+            randomWord = randomWordArr[Math.floor(Math.random() * randomWordArr.length)];
+            startUp();
+            document.getElementById("stat").innerHTML = "";
+            document.getElementById("counter").innerHTML = "Press Submit to try again";
+        }
+        
+        
+    }
+
+
+
+</script>
+<body onload="startUp()">
+    <h1>Guess a letter in the WORD</h1>
+    <input id="letter" type="text">
+    <input type="button" value="Submit" onclick="Letter()"/>
+    <p id="answer"></p>
+    <p id="counter"></p>
+    <p id="stat"></p>
+</body>
+
+</html>
+
