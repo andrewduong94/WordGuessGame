@@ -6,30 +6,37 @@
 </head>
 
 <script>
-    var randomWordArr = ["SUPERBOWL","FINALS", "WORLDCUP"];
+    var randomWordArr = ["ROCKETS", "FINALS", "WORLDCUP", "KINGDOM", "BANKROLL"];
     var randomWord = randomWordArr[Math.floor(Math.random() * randomWordArr.length)];
     var s;
     var count = 0;
     var answerArray = [];
     var check;
+    var wins = 0;
+    var losses = 0;
+
 
 
     function startUp()
     {
-        
         for (var i = 0; i <randomWord.length; i++)
         {
             answerArray[i] = "_";
         }
         s = answerArray.join(" ");
         document.getElementById("answer").innerHTML = s;
-        count=0;
+        document.getElementById("dubs").innerHTML = "Wins: " + wins;
+        document.getElementById("ls").innerHTML = "Losses: " + losses;
+
     }
 
+    
     function Letter()
     {
+    
         var letter = document.getElementById("letter").value.toUpperCase();
         console.log(letter)
+
         if (letter.length > 0)
         {
             for (var i = 0; i < randomWord.length; i++)
@@ -44,31 +51,51 @@
             document.getElementById("answer").innerHTML = answerArray.join(" ");
         }
 
-        console.log(answerArray)
+        
+        
+        
 
-        var check = answerArray.includes("S" && "U" && "P" && "E" && "R" && "B" && "O" && "W" && "L")
-        console.log(check)
+        var check1 = [];
+        var check2 = answerArray.concat(check1);
+        var check3 = randomWord.split("");
+        var check4 = [];
+        var check5 = check3.concat(check4);
 
-        if(check===true){
-        randomWordArr = ["SUPERBOWL","FINALS", "WORLDCUP"];
+
+
+
+        if(check2.sort().join(',')=== check5.sort().join(',')){
+        wins++;
+        count=0;
+        randomWordArr = ["ROCKETS", "FINALS", "WORLDCUP", "KINGDOM", "BANKROLL"];
         randomWord = randomWordArr[Math.floor(Math.random() * randomWordArr.length)];
         startUp();
-        document.getElementById("stat").innerHTML = "You WIN!!!";
-
+        alert("YOU WIN!!!")
+        
         }
+
+
+        
+        console.log(check)
+        console.log(check2)
+        console.log(answerArray)
+
+        
+
+       
 
         if(count===15)
         {
-            document.getElementById("stat").innerHTML = "You LOSE hahahaha";
+        losses++;
+        count=0;
+        randomWordArr = ["ROCKETS", "FINALS", "WORLDCUP", "KINGDOM", "BANKROLL"];
+        randomWord = randomWordArr[Math.floor(Math.random() * randomWordArr.length)];
+        startUp();
+        alert("YOU LOSE!!!")
         }
-        if(count===16)
-        {
-            randomWordArr = ["SUPERBOWL","FINALS", "WORLDCUP"];
-            randomWord = randomWordArr[Math.floor(Math.random() * randomWordArr.length)];
-            startUp();
-            document.getElementById("stat").innerHTML = "";
-            document.getElementById("counter").innerHTML = "Press Submit to try again";
-        }
+
+
+
         
         
     }
@@ -83,6 +110,8 @@
     <p id="answer"></p>
     <p id="counter"></p>
     <p id="stat"></p>
+    <p id="dubs"></p>
+    <p id="ls"></p>
 </body>
 
 </html>
