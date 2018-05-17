@@ -3,6 +3,9 @@ html {
   }
 
 body {
-        background-image:url("dark-greyterrazzo.png");
+        background-color: firebrick
 }
 
+body {
+    font-family: impact; 
+}
