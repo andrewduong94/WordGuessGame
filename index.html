@@ -6,7 +6,7 @@
 </head>
 
 <script>
-    var randomWordArr = ["ROCKETS", "FINALS", "WORLDCUP", "KINGDOM", "BANKROLL"];
+    var randomWordArr = ["ROCKETS", "FINALS", "WORLDCUP", "KINGDOM", "BANKROLL", "BOOTCAMPSPOT"];
     var randomWord = randomWordArr[Math.floor(Math.random() * randomWordArr.length)];
     var s;
     var count = 0;
@@ -19,11 +19,15 @@
 
     function startUp()
     {
+        answerArray = [];
         for (var i = 0; i <randomWord.length; i++)
         {
             answerArray[i] = "_";
+            
         }
+
         s = answerArray.join(" ");
+        
         document.getElementById("answer").innerHTML = s;
         document.getElementById("dubs").innerHTML = "Wins: " + wins;
         document.getElementById("ls").innerHTML = "Losses: " + losses;
@@ -33,7 +37,7 @@
     
     function Letter()
     {
-    
+        
         var letter = document.getElementById("letter").value.toUpperCase();
         console.log(letter)
 
@@ -49,6 +53,7 @@
             count++;
             document.getElementById("counter").innerHTML = "No of attempts: " + count;
             document.getElementById("answer").innerHTML = answerArray.join(" ");
+            document.getElementById("letter").value = ""
         } 
         
 
@@ -62,6 +67,7 @@
 
 
         if(check2.sort().join(',')=== check5.sort().join(',')){
+
         wins++;
         count=0;
         randomWordArr = ["ROCKETS", "FINALS", "WORLDCUP", "KINGDOM", "BANKROLL"];
@@ -72,10 +78,6 @@
         }
 
 
-        
-        console.log(check)
-        console.log(check2)
-        console.log(answerArray)
 
         
 
@@ -104,7 +106,7 @@
     <h1>Guess a letter in the WORD</h1>
     <h2>You have 15 attempts</h2>
     <input id="letter" type="text">
-    <input type="button" value="Submit" onclick="Letter()"/>
+    <input type="submit" value="Submit" onclick="Letter()"/>
     <p id="answer"></p>
     <p id="counter"></p>
     <p id="stat"></p>
