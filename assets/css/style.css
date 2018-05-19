@@ -1,15 +1,52 @@
-html {
+div {
     text-align: center;
   }
 
-  body {
-    background-image: url("http://www.4usky.com/data/out/76/164683822-red-white-wallpapers.jpg");
+.bg {
+    background-image: url("http://www.100hdwallpapers.com/wallpapers/1920x1080/mario_funny-other.jpg");
+    height: 100%;
+    margin: 0;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
-body {
+body,html {
     font-family: impact; 
+    height: 100%;
 }
 
-p{}
+.div {
+    width: 80px;
+    border: 10px solid rgb(190, 48, 48);
+    padding: 5px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: lightgrey;
+
+}
+
+.container {
+    background-color:red;
+    opacity: 0.9;
+    border-radius: 25px;
+    border: 4px solid black;
+    
+}
+
+#answer {
+    font-size: 50px;
+
+}
+
+#ls {
+    border: 2px solid black;
+    border-radius:25px;
+}
+
+#dubs{
+    border: 2px solid black;
+    border-radius:25px;
+}
 
 
